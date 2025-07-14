@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naima Maria Grebe - Computerlinguistin & Digitale Innovatorin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f7d716 0%, #ffb347 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Dekorative Kreise im Hintergrund */
+        .bg-circles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            bottom: 15%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            right: 5%;
+            animation-delay: 4s;
+        }
+
+        .circle:nth-child(4) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 15%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header mit Profil */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f7d716, #ffb347);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 15px 40px rgba(247, 215, 22, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-info h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            background: linear-gradient(45deg, #f7d716, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-info .tagline {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .quick-contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(247, 215, 22, 0.1);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .contact-item:hover {
+            background: rgba(247, 215, 22, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-tab:hover {
+            background: rgba(247, 215, 22, 0.1);
+            color: #333;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(45deg, #f7d716, #ffb347);
+            color: white;
+            box-shadow: 0 5px 15px rgba(247, 215, 22, 0.3);
+        }
+
+        /* Content Bereiche */
+        .content-section {
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f7d716, #ffb347);
+            border-radius: 25px 25px 0 0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(45deg, #f7d716, #ffb347);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        /* Landing Page Hero Sektion */
+        .hero-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .cta-btn {
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            background: white;
+        }
+
+        .cta-btn.primary {
+            background: linear-gradient(45deg, #f7d716, #ffb347);
+            color: white;
+        }
+
+        .cta-btn.primary:hover {
+            background: linear-gradient(45deg, #e6c200, #ff9933);
+        }
+
+        /* Highlights Grid für Landing Page */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #f7d716, #ffb347);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 15px;
+            color: white;
+        }
+
+        .highlight-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .highlight-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .profile-info h1 {
+                font-size: 2.2rem;
+            }
+
+            .nav-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+
+            .nav-tab {
+                flex-shrink: 0;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-info h1 {
+                font-size: 1.8rem;
+            }
+
+            .quick-contact {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-circles">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header mit Profil-Info -->
+        <header class="header">
+            <div class="profile-section">
+                <div class="profile-image">NMG</div>
+                <div class="profile-info">
+                    <h1>Naima Maria Grebe</h1>
+                    <p class="tagline">Computerlinguistin & Digitale Innovatorin</p>
+                </div>
+            </div>
+            <div class="quick-contact">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>Naima.Grebe@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>0176 - 62573712</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Bad Berleburg</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showSection('home')">
+                    <span>🏠</span> Home
+                </button>
+                <button class="nav-tab" onclick="showSection('about')">
+                    <span>👩‍💻</span> Über mich
+                </button>
+                <button class="nav-tab" onclick="showSection('experience')">
+                    <span>💼</span> Erfahrung
+                </button>
+                <button class="nav-tab" onclick="showSection('skills')">
+                    <span>⚡</span> Kompetenzen
+                </button>
+                <button class="nav-tab" onclick="showSection('education')">
+                    <span>🎓</span> Ausbildung
+                </button>
+                <button class="nav-tab" onclick="showSection('projects')">
+                    <span>🚀</span> Projekte
+                </button>
+                <button class="nav-tab" onclick="showSection('contact')">
+                    <span>📞</span> Kontakt
+                </button>
+            </div>
+        </nav>
+
+        <!-- Content Bereiche -->
+        
+        <!-- HOME / LANDING PAGE -->
+        <section id="home" class="content-section active">
+            <div class="hero-section">
+                <h1 class="hero-title">Willkommen!</h1>
+                <p class="hero-subtitle">Entdecken Sie meine einzigartige Kombination aus Computerlinguistik und praktischer Erfahrung</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-btn primary">
+                        <span>📄</span> Lebenslauf herunterladen
+                    </a>
+                    <a href="#" class="cta-btn" onclick="showSection('contact')">
+                        <span>📧</span> Kontakt aufnehmen
+                    </a>
+                </div>
+            </div>
+
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">🤖</div>
+                    <h3>Computational Linguistics</h3>
+                    <p>Bachelor-Studium mit Fokus auf NLP, Machine Learning und Sprachverarbeitung</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🍷</div>
+                    <h3>Weinbau-Expertise</h3>
+                    <p>Ausgebildete Winzerin mit internationaler Erfahrung und Qualitätsmanagement</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">💻</div>
+                    <h3>IT & Digitalisierung</h3>
+                    <p>Praktische Erfahrung in Softwareentwicklung, IT-Support und digitalen Prozessen</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🌍</div>
+                    <h3>Internationale Erfahrung</h3>
+                    <p>Mehrsprachig und mit Auslandserfahrung in Portugal und verschiedenen Branchen</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÜBER MICH -->
+        <section id="about" class="content-section">
+            <div class="content-grid">
+                <div class="card">
+                    <h2>
+                        <div class="card-icon">👩‍💻</div>
+                        Persönliches Profil
+                    </h2>
+                    <p>Passionierte Computerlinguistin mit einzigartiger Kombination aus technischem Know-how und praktischer Erfahrung im Weinbau. Während meines Studiums und in beruflichen Erfahrungen habe ich meine Fähigkeit unter Beweis gestellt, ruhig und fokussiert zu bleiben, selbst unter Druck.</p>
+                    <br>
+                    <p>Ich betrachte Herausforderungen als Gelegenheiten für persönliches Wachstum und lerne kontinuierlich aus Fehlern. Meine Anpassungsfähigkeit und Flexibilität haben in der Vergangenheit zu meinem Erfolg beigetragen.</p>
+                </div>
+                
+                <div class="card">
+                    <h2>
+                        <div class="card-icon">🎯</div>
+                        Was mich auszeichnet
+                    </h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;">🔍 <strong>Analytisches Denken:</strong> Komplexe Sprachstrukturen und Daten verstehen</li>
+                        <li style="margin-bottom: 10px;">🤝 <strong>Interdisziplinäre Expertise:</strong> Tech + Handwerk perfekt kombiniert</li>
+                        <li style="margin-bottom: 10px;">🌱 <strong>Kontinuierliches Lernen:</strong> Immer offen für neue Technologien</li>
+                        <li style="margin-bottom: 10px;">💪 <strong>Belastbarkeit:</strong> Ruhig und fokussiert unter Druck</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ERFAHRUNG (Platzhalter) -->
+        <section id="experience" class="content-section">
+            <div class="card">
+                <h2>
+                    <div class="card-icon">💼</div>
+                    Berufserfahrung
+                </h2>
+                <p style="text-align: center; color: #666; font-style: italic; padding: 40px;">
+                    Hier wird die detaillierte Berufserfahrung mit Timeline-Design eingefügt...
+                </p>
+            </div>
+        </section>
+
+        <!-- SKILLS (Platzhalter) -->
+        <section id="skills" class="content-section">
+            <div class="card">
+                <h2>
+                    <div class="card-icon">⚡</div>
+                    Kompetenzen & Fähigkeiten
+                </h2>
+                <p style="text-align: center; color: #666; font-style: italic; padding: 40px;">
+                    Hier werden die technischen und fachlichen Kompetenzen dargestellt...
+                </p>
+            </div>
+        </section>
+
+        <!-- EDUCATION (Platzhalter) -->
+        <section id="education" class="content-section">
+            <div class="card">
+                <h2>
+                    <div class="card-icon">🎓</div>
+                    Ausbildung & Zertifikate
+                </h2>
+                <p style="text-align: center; color: #666; font-style: italic; padding: 40px;">
+                    Hier wird der Bildungsweg mit Studium und Berufsausbildung detailliert...
+                </p>
+            </div>
+        </section>
+
+        <!-- PROJECTS (Platzhalter) -->
+        <section id="projects" class="content-section">
+            <div class="card">
+                <h2>
+                    <div class="card-icon">🚀</div>
+                    Projekte & Portfolio
+                </h2>
+                <p style="text-align: center; color: #666; font-style: italic; padding: 40px;">
+                    Hier werden konkrete Projekte und Arbeitsproben präsentiert...
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTACT (Platzhalter) -->
+        <section id="contact" class="content-section">
+            <div class="card">
+                <h2>
+                    <div class="card-icon">📞</div>
+                    Kontakt & Vernetzung
+                </h2>
+                <p style="text-align: center; color: #666; font-style: italic; padding: 40px;">
+                    Hier wird ein Kontaktformular und Social Media Links eingefügt...
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Alle Sections verstecken
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Alle Nav-Tabs deaktivieren
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Gewählte Section anzeigen
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Entsprechenden Nav-Tab aktivieren
+            event.target.classList.add('active');
+            
+            // Sanft nach oben scrollen
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Animation beim Laden
+        document.addEventListener('DOMContentLoaded', function() {
+            // Parallax-Effekt für Hintergrund-Kreise
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                document.querySelectorAll('.circle').forEach((circle, index) => {
+                    const speed = (index + 1) * 0.3;
+                    circle.style.transform = `translateY(${scrolled * speed * -0.5}px)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
