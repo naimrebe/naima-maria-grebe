@@ -15,27 +15,133 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #f7d716 0%, #ffb347 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Dekorative Kreise im Hintergrund - erweitert mit mehr Animation */
+        /* Reduzierte Design-Elemente */
         .bg-circles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
+            display: none;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: none;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .card {
+            background: white;
+            backdrop-filter: none;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .card::before {
+            display: none;
+        }
+
+        .card-icon {
+            width: 30px;
+            height: 30px;
+            background: #3b82f6;
+            font-size: 14px;
+        }
+
+        .profile-image::before {
+            display: none;
+        }
+
+        .highlight-card::before {
+            display: none;
+        }
+
+        .highlight-icon::after {
+            display: none;
+        }
+
+        .cta-btn::before,
+        .download-btn::before,
+        .nav-tab::before {
+            display: none;
+        }
+
+        .hero-title {
+            animation: fadeInUp 1s ease-out;
+            text-shadow: none;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { text-shadow: none; }
+            50% { text-shadow: none; }
+        }
+
+        .method-step:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .soft-skill-item:hover .soft-skill-icon,
+        .highlight-item:hover .highlight-icon,
+        .card:hover .card-icon {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-tab:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .cta-btn:hover,
+        .download-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .contact-detail:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .profile-image:hover {
+            transform: none;
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .profile-info h1:hover {
+            transform: none;
+            letter-spacing: normal;
         }
 
         .circle {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             animation: float 6s ease-in-out infinite;
             cursor: pointer;
             pointer-events: auto;
@@ -43,7 +149,7 @@
         }
 
         .circle:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             transform: scale(1.2);
         }
 
@@ -150,14 +256,14 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #f7d716, #ffb347);
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 48px;
             color: white;
             font-weight: bold;
-            box-shadow: 0 15px 40px rgba(247, 215, 22, 0.3);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
             transition: all 0.4s ease;
             cursor: pointer;
             position: relative;
@@ -166,7 +272,7 @@
 
         .profile-image:hover {
             transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 25px 60px rgba(247, 215, 22, 0.5);
+            box-shadow: 0 25px 60px rgba(59, 130, 246, 0.4);
         }
 
         .profile-image:active {
@@ -196,7 +302,7 @@
             font-size: 2.8rem;
             margin-bottom: 10px;
             color: #2c3e50;
-            background: linear-gradient(45deg, #f7d716, #ff8c00);
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -218,7 +324,7 @@
         }
 
         .profile-info .tagline:hover {
-            color: #f7d716;
+            color: #3b82f6;
             transform: translateY(-2px);
         }
 
@@ -234,7 +340,7 @@
             align-items: center;
             gap: 8px;
             padding: 8px 16px;
-            background: rgba(247, 215, 22, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             border-radius: 25px;
             transition: all 0.4s ease;
             font-size: 0.9rem;
@@ -244,9 +350,9 @@
         }
 
         .contact-item:hover {
-            background: rgba(247, 215, 22, 0.3);
+            background: rgba(59, 130, 246, 0.2);
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(247, 215, 22, 0.3);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
         }
 
         .contact-item:active {
@@ -311,16 +417,16 @@
         }
 
         .nav-tab:hover {
-            background: rgba(247, 215, 22, 0.2);
+            background: rgba(59, 130, 246, 0.1);
             color: #333;
             transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 5px 15px rgba(247, 215, 22, 0.2);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
         }
 
         .nav-tab.active {
-            background: linear-gradient(45deg, #f7d716, #ffb347);
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
             color: white;
-            box-shadow: 0 5px 15px rgba(247, 215, 22, 0.3);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
             transform: scale(1.05);
         }
 
@@ -364,7 +470,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #f7d716, #ffb347);
+            background: linear-gradient(90deg, #3b82f6, #1e40af);
             border-radius: 25px 25px 0 0;
             transition: height 0.3s ease;
         }
@@ -393,14 +499,14 @@
         }
 
         .card:hover h2 {
-            color: #f7d716;
+            color: #3b82f6;
             transform: translateX(5px);
         }
 
         .card-icon {
             width: 35px;
             height: 35px;
-            background: linear-gradient(45deg, #f7d716, #ffb347);
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -412,7 +518,475 @@
 
         .card:hover .card-icon {
             transform: rotate(360deg) scale(1.2);
-            box-shadow: 0 5px 15px rgba(247, 215, 22, 0.4);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Download CV Styles */
+        .download-section {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .download-preview {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 2px dashed rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .download-preview:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .cv-icon {
+            width: 60px;
+            height: 80px;
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .cv-details {
+            flex: 1;
+        }
+
+        .cv-details h3 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+
+        .cv-details p {
+            margin: 0 0 10px 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .cv-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cv-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(45deg, #2563eb, #1d4ed8);
+        }
+
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+
+        .quick-highlights {
+            border-top: 2px solid rgba(59, 130, 246, 0.1);
+            padding-top: 30px;
+        }
+
+        .highlights-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .highlight-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .highlight-item:hover {
+            background: rgba(59, 130, 246, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .highlight-item .highlight-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-item:hover .highlight-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .highlight-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* Project Card Styles */
+        .project-card {
+            position: relative;
+        }
+
+        .project-details {
+            margin-top: 15px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .project-type {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .project-duration {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-highlights {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .project-highlights h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .project-highlights ul {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .project-highlights li {
+            margin-bottom: 5px;
+        }
+
+        .project-results {
+            margin: 15px 0;
+        }
+
+        .project-results h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+            color: #374151;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #d1d5db;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .highlight-project {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(30, 64, 175, 0.05));
+            border: 2px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .methodology {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .method-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .method-step:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .step-content p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Skill Styles */
+        .skill-category {
+            margin-bottom: 20px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: #333;
+            min-width: 120px;
+        }
+
+        .skill-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 4px;
+            margin-left: 15px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            border-radius: 4px;
+            transition: width 0.8s ease;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            padding: 6px 12px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #3b82f6;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-tag:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .language-skills {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-level {
+            color: #3b82f6;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 15px;
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-box:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .skill-box span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .soft-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .soft-skill-item {
+            text-align: center;
+            padding: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .soft-skill-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .soft-skill-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin: 0 auto 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .soft-skill-item:hover .soft-skill-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .soft-skill-item h4 {
+            margin: 0 0 8px 0;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .soft-skill-item p {
+            margin: 0;
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
 
         /* Landing Page Hero Sektion - erweiterte Animationen */
@@ -503,13 +1077,13 @@
         }
 
         .cta-btn.primary {
-            background: linear-gradient(45deg, #f7d716, #ffb347);
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
             color: white;
         }
 
         .cta-btn.primary:hover {
-            background: linear-gradient(45deg, #e6c200, #ff9933);
-            box-shadow: 0 20px 50px rgba(247, 215, 22, 0.4);
+            background: linear-gradient(45deg, #2563eb, #1d4ed8);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.4);
         }
 
         .cta-btn:active {
@@ -543,7 +1117,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(247, 215, 22, 0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1), transparent);
             transform: rotate(45deg);
             transition: all 0.6s ease;
             opacity: 0;
@@ -572,7 +1146,7 @@
         .highlight-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(45deg, #f7d716, #ffb347);
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -586,7 +1160,7 @@
 
         .highlight-card:hover .highlight-icon {
             transform: scale(1.2) rotate(360deg);
-            box-shadow: 0 10px 30px rgba(247, 215, 22, 0.4);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
         }
 
         .highlight-icon::after {
@@ -614,7 +1188,7 @@
         }
 
         .highlight-card:hover h3 {
-            color: #f7d716;
+            color: #3b82f6;
             transform: translateY(-2px);
         }
 
@@ -626,6 +1200,142 @@
 
         .highlight-card:hover p {
             color: #333;
+        }
+
+        /* Kontaktformular Styles */
+        .contact-form {
+            max-width: 100%;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 15px 15px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group input:not(:placeholder-shown),
+        .form-group textarea:not(:placeholder-shown) {
+            border-color: #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+            background: white;
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: #666;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: white;
+            padding: 0 5px;
+        }
+
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 10px;
+            color: #3b82f6;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(45deg, #2563eb, #1d4ed8);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Kontakt Info Styles */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(59, 130, 246, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-detail:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-detail:hover .contact-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .contact-detail h4 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        .contact-detail p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
         }
 
         @keyframes fadeInUp {
@@ -724,21 +1434,6 @@
                     <h1 onclick="animateTitle(this)">Naima Maria Grebe</h1>
                     <p class="tagline">Computerlinguistin & Gelernte Winzerin</p>
                 </div>
-            </div>
-            <div class="quick-contact">
-                <div class="contact-item" onclick="animateContact(this)">
-                    <span>📧</span>
-                    <span>Naima.Grebe@gmail.com</span>
-                </div>
-                <div class="contact-item" onclick="animateContact(this)">
-                    <span>📱</span>
-                    <span>0176 - 62573712</span>
-                </div>
-                <div class="contact-item" onclick="animateContact(this)">
-                    <span>📍</span>
-                    <span>Bad Berleburg</span>
-                </div>
-            </div>
         </header>
 
         <!-- Navigation -->
@@ -755,9 +1450,6 @@
                 </button>
                 <button class="nav-tab" onclick="showSection('skills', this)">
                     <span>⚡</span> Kompetenzen
-                </button>
-                <button class="nav-tab" onclick="showSection('education', this)">
-                    <span>🎓</span> Ausbildung
                 </button>
                 <button class="nav-tab" onclick="showSection('projects', this)">
                     <span>🚀</span> Projekte
@@ -803,97 +1495,322 @@
                 </div>
             </div>
         </section>
-
         <!-- ÜBER MICH -->
         <section id="about" class="content-section">
             <div class="content-grid">
                 <div class="card" onclick="animateCard(this)">
                     <h2>
                         <div class="card-icon">👩‍💻</div>
-                        Persönliches Profil
+                        Mein Profil für Werbeagenturen
                     </h2>
-                    <p>Ich bin eine passionierte Computerlinguistin mit einer einzigartigen Kombination aus technischem Know-how und praktischer Erfahrung im Weinbau. Während meines Studiums und in meinem beruflichen Werdegang habe ich immer wieder unter Beweis gestellt, dass ich auch unter Druck ruhig und fokussiert bleibe.</p>
+                    <p>Als Computerlinguistin bringe ich eine seltene Kombination mit: technische Präzision trifft auf kreatives Verständnis für Sprache und Kommunikation. Meine Ausbildung zur Winzerin hat mir gezeigt, wie wichtig Authentizität, Qualität und die richtige "Geschichte" hinter einem Produkt sind - Kernwerte, die auch in der Werbung entscheidend sind.</p>
                     <br>
-                    <p>Ich betrachte Herausforderungen als Gelegenheit für persönliches Wachstum und lerne kontinuierlich aus Fehlern. In der Vergangenheit haben meine Anpassungsfähigkeit und Flexibilität zu meinem Erfolg beigetragen.</p>
+                    <p>Ich verstehe sowohl die technischen Aspekte digitaler Kampagnen als auch die emotionalen Trigger, die Zielgruppen ansprechen. Diese Doppelkompetenz ermöglicht es mir, datengetriebene Strategien zu entwickeln, die gleichzeitig menschlich und überzeugend kommunizieren.</p>
                 </div>
                 
                 <div class="card" onclick="animateCard(this)">
                     <h2>
                         <div class="card-icon">🎯</div>
-                        Was mich auszeichnet
+                        Mein Mehrwert für Agenturen
                     </h2>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;">🔍 <strong>Analytisches Denken:</strong> Komplexe Sprachstrukturen und Daten verstehen</li>
-                        <li style="margin-bottom: 10px;">🤝 <strong>Interdisziplinäre Expertise:</strong> Tech + Handwerk perfekt kombiniert</li>
-                        <li style="margin-bottom: 10px;">🌱 <strong>Kontinuierliches Lernen:</strong> Immer offen für neue Technologien</li>
-                        <li style="margin-bottom: 10px;">💪 <strong>Belastbarkeit:</strong> Ruhig und fokussiert unter Druck</li>
+                        <li style="margin-bottom: 12px;">🔍 <strong>Content-Analyse & -Optimierung:</strong> Texte und Botschaften linguistisch fundiert entwickeln</li>
+                        <li style="margin-bottom: 12px;">📊 <strong>Datengetriebenes Storytelling:</strong> Kampagnendaten in überzeugende Narratives übersetzen</li>
+                        <li style="margin-bottom: 12px;">🌐 <strong>Mehrsprachige Kompetenz:</strong> Kulturelle Nuancen in internationalen Kampagnen berücksichtigen</li>
+                        <li style="margin-bottom: 12px;">🤖 <strong>AI & Automation:</strong> Moderne Tools für effizientere Workflows nutzen</li>
+                        <li style="margin-bottom: 12px;">🎨 <strong>Authentizität:</strong> Echte Geschichten entwickeln, die Vertrauen schaffen</li>
+                        <li style="margin-bottom: 12px;">💪 <strong>Qualitätsfokus:</strong> Präzision und Detailgenauigkeit aus dem Handwerk übertragen</li>
                     </ul>
+                </div>
+
+                <div class="card" onclick="animateCard(this)">
+                    <h2>
+                        <div class="card-icon">💡</div>
+                        Arbeitsweise & Philosophie
+                    </h2>
+                    <p>Meine Herangehensweise kombiniert systematische Analyse mit kreativer Intuition. Aus der Weinproduktion kenne ich die Bedeutung von Geduld, Timing und der perfekten Balance - Prinzipien, die sich direkt auf Kampagnenentwicklung übertragen lassen.</p>
+                    <br>
+                    <p>Ich arbeite strukturiert und datenbasiert, verliere dabei aber nie den Blick für das große Bild und die emotionale Wirkung. Komplexe technische Sachverhalte kann ich verständlich kommunizieren und in überzeugende Marketing-Botschaften übersetzen.</p>
+                </div>
+            </div>
+        </section>
+		<!-- ERFAHRUNG -->
+        <section id="experience" class="content-section">
+            <div class="card" onclick="animateCard(this)">
+                <h2>                 
+                    <div class="quick-highlights" style="margin-top: 40px;">
+                        <h4 style="color: #2c3e50; margin-bottom: 20px;">Karriere-Highlights</h4>
+                        <div class="highlights-row">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🎓</div>
+                                <span>Bachelor Computerlinguistik</span>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🍷</div>
+                                <span>Ausgebildete Winzerin</span>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">💻</div>
+                                <span>IT & Web-Expertise</span>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🤖</div>
+                                <span>KI & Sprachmodelle</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ERFAHRUNG (Platzhalter) -->
-        <section id="experience" class="content-section">
-            <div class="card">
-                <h2>
-                    <div class="card-icon">💼</div>
-                    Berufserfahrung
-                </h2>
-                <p style="text-align: center; color: #666; font-style: italic; padding: 40px;">
-                    Hier wird die detaillierte Berufserfahrung mit Timeline-Design eingefügt...
-                </p>
-            </div>
-        </section>
-
-        <!-- SKILLS (Platzhalter) -->
+        <!-- SKILLS -->
         <section id="skills" class="content-section">
-            <div class="card">
-                <h2>
-                    <div class="card-icon">⚡</div>
-                    Kompetenzen & Fähigkeiten
-                </h2>
-                <p style="text-align: center; color: #666; font-style: italic; padding: 40px;">
-                    Hier werden die technischen und fachlichen Kompetenzen dargestellt...
-                </p>
+            <div class="content-grid">
+                <div class="card" onclick="animateCard(this)">
+                    <h2>
+                        <div class="card-icon">💻</div>
+                        Technische Kompetenzen
+                    </h2>
+                    <div class="skill-category">
+                        <h3 style="color: #3b82f6; margin-bottom: 15px; font-size: 1.1rem;">Programmierung & Textanalyse</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">LaTex</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">HTML/CSS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" style="margin-top: 25px;">
+                        <h3 style="color: #3b82f6; margin-bottom: 15px; font-size: 1.1rem;">Tools & Software</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">DATEV</span>
+                            <span class="skill-tag">Office 365</span>
+                            <span class="skill-tag">Git/GitHub</span>
+                            <span class="skill-tag">Canva</span>
+                            <span class="skill-tag">Overleaf</span>
+                            <span class="skill-tag">Wordpress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" onclick="animateCard(this)">
+                    <h2>
+                        <div class="card-icon">🧠</div>
+                        Computerlinguistik
+                    </h2>
+                    <div class="skill-category">
+                        <h3 style="color: #3b82f6; margin-bottom: 15px; font-size: 1.1rem;">Fachexpertise</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 8px;">📝 <strong>Natural Language Processing</strong></li>
+                            <li style="margin-bottom: 8px;">🔍 <strong>Textanalyse & Sentiment Analysis</strong></li>
+                            <li style="margin-bottom: 8px;">🤖 <strong>Machine Learning für Sprache</strong></li>
+                            <li style="margin-bottom: 8px;">📊 <strong>Korpuslinguistik</strong></li>
+                            <li style="margin-bottom: 8px;">🌍 <strong>Mehrsprachige Datenverarbeitung</strong></li>
+                            <li style="margin-bottom: 8px;">⚙️ <strong>Automatisierte Content-Analyse</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category" style="margin-top: 25px;">
+                        <h3 style="color: #3b82f6; margin-bottom: 15px; font-size: 1.1rem;">Sprachen</h3>
+                        <div class="language-skills">
+                            <div class="language-item">
+                                <span>Deutsch (Muttersprache)</span>
+                                <div class="language-level"></div>
+                            </div>
+                            <div class="language-item">
+                                <span>Englisch (Verhandlungssicher)</span>
+                                <div class="language-level"></div>
+                            </div>
+                            <div class="language-item">
+                                <span>Französisch (Grundkenntnisse)</span>
+                                <div class="language-level"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" onclick="animateCard(this)">
+                    <h2>
+                        <div class="card-icon">🤝</div>
+                        Soft Skills
+                    </h2>
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-icon">🎯</div>
+                            <h4>Präzision & Qualitätsfokus</h4>
+                            <p>Detailgenauigkeit aus dem Handwerk übertragen</p>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-icon">🧩</div>
+                            <h4>Analytisches Denken</h4>
+                            <p>Komplexe Probleme strukturiert lösen</p>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-icon">💡</div>
+                            <h4>Kreativität</h4>
+                            <p>Innovative Lösungsansätze entwickeln</p>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-icon">⏰</div>
+                            <h4>Zeitmanagement</h4>
+                            <p>Projekte termingerecht abschließen</p>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-icon">🤝</div>
+                            <h4>Teamfähigkeit</h4>
+                            <p>Interdisziplinär zusammenarbeiten</p>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-icon">🔄</div>
+                            <h4>Anpassungsfähigkeit</h4>
+                            <p>Flexibel auf Änderungen reagieren</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <!-- EDUCATION (Platzhalter) -->
-        <section id="education" class="content-section">
-            <div class="card">
-                <h2>
-                    <div class="card-icon">🎓</div>
-                    Ausbildung & Zertifikate
-                </h2>
-                <p style="text-align: center; color: #666; font-style: italic; padding: 40px;">
-                    Hier wird der Bildungsweg mit Studium und Berufsausbildung detailliert...
-                </p>
+ <!-- PROJECTS -->
+<section id="projects" class="content-section">
+    <div class="content-grid">
+        <div class="card project-card" onclick="animateCard(this)">
+            <h2>
+                <div class="card-icon">🌐</div>
+                Weinkonvent Webseite
+            </h2>
+            <div class="project-details">
+                <div class="project-meta">
+                    <span class="project-type">Webseite & Content</span>
+                    <span class="project-duration">Ehrenamtlich</span>
+                </div>
+                <p>Betreute in meiner Freizeit die Webseite des Siegerländer Weinkonvents - Content-Pflege, Design-Updates und technische Wartung.</p>
+                <div class="project-highlights">
+                    <h4>Was ich dabei machte:</h4>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Texte schreiben und aktualisieren</li>
+                        <li>Design-Anpassungen mit HTML/CSS</li>
+                        <li>Website-Wartung und Updates</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML/CSS</span>
+                    <span class="tech-tag">Content Management</span>
+                    <span class="tech-tag">Responsive Design</span>
+                </div>
             </div>
-        </section>
-
-        <!-- PROJECTS (Platzhalter) -->
-        <section id="projects" class="content-section">
-            <div class="card">
-                <h2>
-                    <div class="card-icon">🚀</div>
-                    Projekte & Portfolio
-                </h2>
-                <p style="text-align: center; color: #666; font-style: italic; padding: 40px;">
-                    Hier werden konkrete Projekte und Arbeitsproben präsentiert...
-                </p>
+        </div>
+		<div class="card project-card" onclick="animateCard(this)">
+			<h2>
+				<div class="card-icon">🤖</div>
+				Bachelorarbeit: BERT-Modell Training
+			</h2>
+		<div class="project-details">
+			<div class="project-meta">
+				<span class="project-type">Abschlussarbeit</span>
+				<span class="project-duration">6 Monate</span>
+			</div>
+			<p>Training eines BERT-Sprachmodells auf einem FAQ-Datensatz zur Verbesserung der automatischen Antwortgenerierung.</p>
+			<div class="project-highlights">
+				<h4>Technische Umsetzung:</h4>
+				<ul style="margin: 0; padding-left: 20px;">
+					<li>Datenaufbereitung und Preprocessing des FAQ-Datensatzes</li>
+					<li>BERT-Modell Fine-Tuning für domänenspezifische Anwendung</li>
+					<li>Evaluation und Optimierung der Modell-Performance</li>
+					<li>Implementation und Testing der Antwortgenerierung</li>
+				</ul>
+			</div>
+			<div class="tech-stack">
+				<span class="tech-tag">Python</span>
+				<span class="tech-tag">BERT</span>
+				<span class="tech-tag">Transformers</span>
+				<span class="tech-tag">Machine Learning</span>
+			</div>
+		</div>
+	</div>
+        <div class="card project-card" onclick="animateCard(this)">
+			<h2>
+				<div class="card-icon">🎨</div>
+				Grafik Design & E-Mail-Signaturen
+            </h2>
+            <div class="project-details">
+                <div class="project-meta">
+                    <span class="project-type">Design & Branding</span>
+                    <span class="project-duration">Verschiedene Projekte</span>
+                </div>
+                <p>Erstelle E-Mail-Signaturen für Unternehmen und verschiedene Grafiken für Marketing-Zwecke, hauptsächlich mit Canva.</p>
+                <div class="project-highlights">
+                    <h4>Beispiele:</h4>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Corporate E-Mail-Signaturen für verschiedene Firmen</li>
+                        <li>Marketing-Materialien und Flyer</li>
+                        <li>Konsistente Markengestaltung</li>
+                        <li>Social Media Graphics</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Canva</span>
+                    <span class="tech-tag">Corporate Design</span>
+                    <span class="tech-tag">Brand Identity</span>
+                </div>
             </div>
-        </section>
-
-        <!-- CONTACT (Platzhalter) -->
+        </div>
+    </div>
+</section>
+        <!-- CONTACT -->
         <section id="contact" class="content-section">
-            <div class="card">
-                <h2>
-                    <div class="card-icon">📞</div>
-                    Kontakt & Vernetzung
-                </h2>
-                <p style="text-align: center; color: #666; font-style: italic; padding: 40px;">
-                    Hier wird ein Kontaktformular und Social Media Links eingefügt...
-                </p>
+                <div class="card">
+                    <h2>
+                        <div class="card-icon">📍</div>
+                        Kontaktdaten
+                    </h2>
+                    <div class="contact-info">
+                        <div class="contact-detail" onclick="animateContactDetail(this)">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h4>E-Mail</h4>
+                                <p>Naima.Grebe@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail" onclick="animateContactDetail(this)">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <h4>Telefon</h4>
+                                <p>0176 - 62573712</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail" onclick="animateContactDetail(this)">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Standort</h4>
+                                <p>Bad Berleburg<br>Nordrhein-Westfalen</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail" onclick="animateContactDetail(this)">
+                            <div class="contact-icon">💼</div>
+                            <div>
+                                <h4>Verfügbarkeit</h4>
+                                <p>Bereit für neue Projekte</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -917,16 +1834,20 @@
 
         function animateTitle(title) {
             title.style.transform = 'scale(1.1)';
-            title.style.color = '#ff8c00';
+            title.style.background = 'linear-gradient(45deg, #2563eb, #1d4ed8)';
+            title.style.webkitBackgroundClip = 'text';
+            title.style.webkitTextFillColor = 'transparent';
             setTimeout(() => {
                 title.style.transform = '';
-                title.style.color = '';
+                title.style.background = '';
+                title.style.webkitBackgroundClip = '';
+                title.style.webkitTextFillColor = '';
             }, 300);
         }
 
         function animateContact(contact) {
             contact.style.transform = 'scale(1.1) rotate(5deg)';
-            contact.style.background = 'rgba(247, 215, 22, 0.5)';
+            contact.style.background = 'rgba(59, 130, 246, 0.3)';
             setTimeout(() => {
                 contact.style.transform = '';
                 contact.style.background = '';
@@ -951,7 +1872,7 @@
 
         function animateHighlightCard(card) {
             card.style.transform = 'scale(1.05) rotateY(10deg)';
-            card.style.boxShadow = '0 30px 60px rgba(247, 215, 22, 0.3)';
+            card.style.boxShadow = '0 30px 60px rgba(59, 130, 246, 0.2)';
             setTimeout(() => {
                 card.style.transform = '';
                 card.style.boxShadow = '';
@@ -960,7 +1881,7 @@
 
         function animateCard(card) {
             card.style.transform = 'scale(1.02) rotateX(5deg)';
-            card.style.boxShadow = '0 40px 80px rgba(247, 215, 22, 0.2)';
+            card.style.boxShadow = '0 40px 80px rgba(59, 130, 246, 0.15)';
             setTimeout(() => {
                 card.style.transform = '';
                 card.style.boxShadow = '';
@@ -1016,9 +1937,9 @@
             setInterval(() => {
                 const circles = document.querySelectorAll('.circle');
                 const randomCircle = circles[Math.floor(Math.random() * circles.length)];
-                randomCircle.style.background = 'rgba(255, 255, 255, 0.3)';
+                randomCircle.style.background = 'rgba(255, 255, 255, 0.15)';
                 setTimeout(() => {
-                    randomCircle.style.background = 'rgba(255, 255, 255, 0.1)';
+                    randomCircle.style.background = 'rgba(255, 255, 255, 0.08)';
                 }, 1000);
             }, 3000);
 
@@ -1072,6 +1993,80 @@
                 circle.style.transform += ` translate(${x}px, ${y}px)`;
             });
         });
+
+        // Kontaktformular und CV Download Funktionen
+        function downloadCV(event) {
+            event.preventDefault();
+            
+            const downloadBtn = event.target;
+            const originalText = downloadBtn.innerHTML;
+            
+            // Animation beim Download
+            downloadBtn.innerHTML = '<span>⏳</span> Wird vorbereitet...';
+            downloadBtn.style.background = 'linear-gradient(45deg, #999, #ccc)';
+            downloadBtn.style.pointerEvents = 'none';
+            
+            // Simuliere Download-Vorbereitung
+            setTimeout(() => {
+                downloadBtn.innerHTML = '<span>✅</span> Bereit zum Download!';
+                downloadBtn.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
+                
+                // Hier würdest du normalerweise den echten Download starten:
+                // window.open('path/to/your/cv.pdf', '_blank');
+                
+                // Info für den Nutzer
+                alert('Hier würde normalerweise der Lebenslauf als PDF heruntergeladen werden. Bitte lade deine CV-Datei hoch und verlinke sie entsprechend.');
+                
+                // Button zurücksetzen
+                setTimeout(() => {
+                    downloadBtn.innerHTML = originalText;
+                    downloadBtn.style.background = '';
+                    downloadBtn.style.pointerEvents = '';
+                }, 2000);
+            }, 1500);
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Animation beim Absenden
+            submitBtn.innerHTML = '<span>⏳</span> Wird gesendet...';
+            submitBtn.style.background = 'linear-gradient(45deg, #999, #ccc)';
+            submitBtn.disabled = true;
+            
+            // Simuliere das Senden (hier würdest du normalerweise die Daten an einen Server senden)
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>✅</span> Gesendet!';
+                submitBtn.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
+                
+                // Formular zurücksetzen nach kurzer Zeit
+                setTimeout(() => {
+                    event.target.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                    
+                    // Erfolgs-Animation
+                    submitBtn.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        submitBtn.style.transform = '';
+                    }, 200);
+                }, 2000);
+            }, 1500);
+        }
+
+        function animateContactDetail(detail) {
+            detail.style.transform = 'translateX(10px) scale(1.02)';
+            detail.style.background = 'rgba(59, 130, 246, 0.15)';
+            
+            setTimeout(() => {
+                detail.style.transform = '';
+                detail.style.background = '';
+            }, 300);
+        }
     </script>
 </body>
 </html>
